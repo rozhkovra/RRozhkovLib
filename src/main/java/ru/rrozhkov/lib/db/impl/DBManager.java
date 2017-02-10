@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Collection;
+import java.util.Map;
 
 import ru.rrozhkov.lib.collection.CollectionUtil;
 import ru.rrozhkov.lib.convert.IConverter;
@@ -64,6 +65,22 @@ public abstract class DBManager implements IDBManager {
 		} 
 	}
 	
+	public int insert(String sql, Map<String, Object> map) throws SQLException {
+		for(String key : map.keySet()){
+			sql=sql.replace("#"+key+"#", String.valueOf(map.get(key)));
+		}
+		return executeUpdate(sql);
+	}
+	
+	
+	
+	public int update(String sql, Map<String, Object> map) throws SQLException {
+		for(String key : map.keySet()){
+			sql=sql.replace("#"+key+"#", String.valueOf(map.get(key)));
+		}
+		return executeUpdate(sql);
+	}
+
 	/* (non-Javadoc)
 	 * @see ru.rrozhkov.lib.db.impl.IDBManager#executeQuery(java.lang.String)
 	 */
