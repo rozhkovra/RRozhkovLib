@@ -15,6 +15,14 @@ public class FilterUtil {
 		}
 		return filteredCollection;
 	}
+
+	public static <T> Collection<T> filter(Collection<T> collection, IFilter... filters){
+		Collection<T> filteredCollection = CollectionUtil.copy(collection);
+		for(IFilter filter : filters){
+			filteredCollection = filter(filteredCollection,filter);
+		}
+		return filteredCollection;
+	}
 	
 	public static <T> Collection<T> filter(Collection<T> collection, IFilter filter){
 		if (filter == null)
