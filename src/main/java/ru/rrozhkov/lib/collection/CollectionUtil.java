@@ -2,6 +2,7 @@ package ru.rrozhkov.lib.collection;
 
 import java.util.Collection;
 import java.util.LinkedList;
+import java.util.List;
 
 public class CollectionUtil {
 	@SuppressWarnings("rawtypes")
@@ -21,5 +22,12 @@ public class CollectionUtil {
 	
 	public static <T> Collection<T> create(){
 		return new LinkedList<T>();
+	}
+
+	public static <T> T get(Collection<T> collectoin, int index){
+		if(index > collectoin.size()-1 || index < 0)
+			return null;
+		return ((List<T>)collectoin).get(index);
+
 	}
 }
