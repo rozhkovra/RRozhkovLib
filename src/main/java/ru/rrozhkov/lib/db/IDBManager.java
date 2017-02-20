@@ -17,9 +17,4 @@ public interface IDBManager {
 	int insert(String sql, Map<String, Object> map)  throws SQLException;
 	
 	int update(String sql, Map<String, Object> map)  throws SQLException;
-
-	ResultSet executeQuery(String query) throws SQLException;
-
-	int executeUpdate(String query) throws SQLException;
-
 }

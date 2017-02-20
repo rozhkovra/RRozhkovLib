@@ -84,7 +84,7 @@ public abstract class DBManager implements IDBManager {
 	/* (non-Javadoc)
 	 * @see ru.rrozhkov.lib.db.impl.IDBManager#executeQuery(java.lang.String)
 	 */
-	public ResultSet executeQuery(String query) throws SQLException{
+	protected ResultSet executeQuery(String query) throws SQLException{
 		Statement stmt = null;  
 		try { 
 			stmt = openStatement(); 
@@ -103,7 +103,7 @@ public abstract class DBManager implements IDBManager {
 	/* (non-Javadoc)
 	 * @see ru.rrozhkov.lib.db.impl.IDBManager#executeUpdate(java.lang.String)
 	 */
-	public int executeUpdate(String query) throws SQLException {
+	protected int executeUpdate(String query) throws SQLException {
 		Statement stmt = null;  
 		try { 
 			stmt = openStatement(); 
