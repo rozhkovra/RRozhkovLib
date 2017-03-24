@@ -1,8 +1,6 @@
 package ru.rrozhkov.lib.collection;
 
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class CollectionUtil {
 	@SuppressWarnings("rawtypes")
@@ -19,9 +17,17 @@ public class CollectionUtil {
 		newCollection.add(obj);
 		return newCollection;
 	}
-	
+
 	public static <T> Collection<T> create(){
+		return list();
+	}
+
+	public static <T> Collection<T> list(){
 		return new LinkedList<T>();
+	}
+
+	public static <T,E> Map<T,E> map(){
+		return new HashMap<T,E>();
 	}
 
 	public static <T> T get(Collection<T> collectoin, int index){
