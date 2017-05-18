@@ -7,14 +7,14 @@ import java.util.Map;
 
 import ru.rrozhkov.lib.convert.IConverter;
 
-public interface IDBManager {
+public interface IDBManager<A, B> {
 
 	int nextId(String tableName) throws SQLException;
 
 	<T> Collection<T> select(String select,
-			IConverter<ResultSet, T> converter) throws SQLException;
+			IConverter<A, T> converter) throws SQLException;
 	
-	int insert(String sql, Map<String, Object> map)  throws SQLException;
+	int insert(String sql, B map)  throws SQLException;
 	
-	int update(String sql, Map<String, Object> map)  throws SQLException;
+	int update(String sql, B map)  throws SQLException;
 }

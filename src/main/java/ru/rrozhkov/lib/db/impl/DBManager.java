@@ -12,7 +12,7 @@ import ru.rrozhkov.lib.collection.CollectionUtil;
 import ru.rrozhkov.lib.convert.IConverter;
 import ru.rrozhkov.lib.db.IDBManager;
 
-public abstract class DBManager implements IDBManager {
+public abstract class DBManager implements IDBManager<ResultSet,Map<String,Object>> {
 	protected static IDBManager dbManager;
     private Connection connection;
 	private static String nextId = "SELECT MAX(ID)+1 AS ID FROM #table#";
