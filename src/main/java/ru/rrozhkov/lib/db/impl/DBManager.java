@@ -16,6 +16,7 @@ public abstract class DBManager implements IDBManager<ResultSet,Map<String,Objec
 	protected static IDBManager dbManager;
     private Connection connection;
 	private static String nextId = "SELECT MAX(ID)+1 AS ID FROM #table#";
+	private static String deleteAll = "DELETE FROM #table#";
     
     /* (non-Javadoc)
 	 * @see ru.rrozhkov.lib.db.impl.IDBManager#nextId(java.lang.String)
@@ -79,6 +80,10 @@ public abstract class DBManager implements IDBManager<ResultSet,Map<String,Objec
 			sql=sql.replace("#"+key+"#", String.valueOf(map.get(key)));
 		}
 		return executeUpdate(sql);
+	}
+
+	public int deleteAll(String tableName) throws SQLException {
+		return executeUpdate(deleteAll.replace("#table#", tableName));
 	}
 
 	/* (non-Javadoc)

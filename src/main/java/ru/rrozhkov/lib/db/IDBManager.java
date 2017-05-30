@@ -1,11 +1,9 @@
 package ru.rrozhkov.lib.db;
 
-import java.sql.ResultSet;
+import ru.rrozhkov.lib.convert.IConverter;
+
 import java.sql.SQLException;
 import java.util.Collection;
-import java.util.Map;
-
-import ru.rrozhkov.lib.convert.IConverter;
 
 public interface IDBManager<A, B> {
 
@@ -17,4 +15,6 @@ public interface IDBManager<A, B> {
 	int insert(String sql, B map)  throws SQLException;
 	
 	int update(String sql, B map)  throws SQLException;
+
+	int deleteAll(String tableName) throws SQLException;
 }
